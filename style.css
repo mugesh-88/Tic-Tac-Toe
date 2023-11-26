@@ -1,0 +1,209 @@
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+    font-family: 'Poppins',sans-serif;
+}
+
+body{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(45deg,#0085ff,#ff1458);
+}
+
+.board{
+    position: relative;
+    display:grid;
+    grid-template-columns: repeat(3,1fr);
+    margin: 0 50px;
+}
+
+.board .dropBox{
+    position: relative;
+    width:140px;
+    height: 140px;
+    border-left: 4px solid #fff;
+    border-bottom: 4px solid #fff;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.board .dropBox:nth-child(7),
+.board .dropBox:nth-child(8),
+.board .dropBox:nth-child(9){
+    border-bottom :none;
+}
+
+.board .dropBox:nth-child(1),
+.board .dropBox:nth-child(4),
+.board .dropBox:nth-child(7){
+    border-left :none;
+}
+
+.drag{
+    position: relative;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+    flex-direction: column;
+    height:420px;
+    width :100px;
+    gap: 10px;
+    margin :0 40px;
+    cursor: grab;
+}
+
+.drag .dragBox{
+    padding: 15px;
+    background: rgba(255,255,255,0.1);
+}
+
+.cross
+{
+    position:relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+ .circle
+{
+    position:relative;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content:center;
+    align-items: center;
+}
+
+ .cross::before
+{
+    content:'';
+    position: absolute;
+    width:5px;
+    height:100%;
+    background: #fff;
+    transform: rotate(45deg);
+
+}
+
+ .cross::after
+{
+    content:'';
+    position: absolute;
+    width:100%;
+    height:5px;
+    background: #fff;
+    transform: rotate(45deg);
+    
+}
+
+ .circle{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    border:5px solid #fff;
+    border-radius:50%;
+}
+
+.reset{
+    position:absolute;
+    bottom: 30px;
+    left:50%;
+    transform: translateX(-50%);
+    padding: 10px 25px;
+    border:none;
+    outline: none;
+    border-radius: 3px;
+    background: #161616;
+    color: #fff;
+    font-size: 1.25em;
+    cursor:pointer;
+    /* transition: .2s ease-in-out; */
+}
+
+.reset:hover{
+    background: #fff;
+    color:#161616;
+    scale: 1.05;
+    font-weight: bold;
+}
+
+.board .dropBox div{
+    pointer-events: none;
+    scale: 1.5;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media (max-width:819px){
+    body{
+        display:flex;
+        flex-direction: column;
+        padding:30px;
+    }
+    .board{
+        margin: 50px 50px;
+    }
+    .drag{
+        display: flex;
+        flex-direction: row;
+        height:60px;
+        width :300px;
+    }
+    .board .dropBox{
+        width:100px;
+        height: 100px;
+        border-left: 2px solid #fff;
+        border-bottom: 2px solid #fff;
+        display:flex;
+    }
+
+    .reset{
+        font-size: 1em;
+        padding: 5px 10px;
+    }
+    .cross{
+        width: 30px;
+        height: 30px;
+    }
+
+    .circle{
+        width: 30px;
+        height: 30px;
+    }
+    .drag .dragBox{
+        padding: 10px;
+    }
+}
